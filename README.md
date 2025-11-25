@@ -1,5 +1,5 @@
 # FULL_ADDER_SUBTRACTOR
-
+DATE : 25/11/2025
 Implementation-of-Full-Adder-and-Full-subtractor-circuit
 
 **AIM:**
@@ -43,17 +43,80 @@ Borrow out = A'Bin + A'B + BBin
 Write the detailed procedure here
 
 **Program:**
+-------------------------------------
+Full Adder
+-------------------------------------
+```
+module full_adder (
+    input  wire a, b, cin,   // Inputs
+    output wire sum, carry   // Outputs
+);
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+    // Logic equations
+    assign sum   = a ^ b ^ cin;                  // XOR for sum
+    assign carry = (a & b) | (b & cin) | (a & cin); // Majority function for carry
+
+endmodule
+```
+
+
+-------------------------------------
+Full Sub
+-------------------------------------
+```
+module full_subtractor (
+    input  wire a, b, bin,       // Inputs
+    output wire diff, borrow     // Outputs
+);
+
+    // Logic equations
+    assign diff   = a ^ b ^ bin;                  // Difference
+    assign borrow = (~a & b) | (~(a ^ b) & bin);  // Borrow logic
+
+endmodule
+```
+
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+
+
+
+
+Developed by:  SHREEJA R S
+RegisterNumber: 25017561
 */
 
 **RTL Schematic**
 
+-------------------------------------
+Full Adder
+-------------------------------------
+
+<img width="926" height="577" alt="Screenshot 2025-11-25 214754" src="https://github.com/user-attachments/assets/b727d217-c4c2-4ba2-b9ba-2c3975fe081e" />
+
+-------------------------------------
+Full Sub
+-------------------------------------
+
+<img width="825" height="330" alt="Screenshot 2025-11-25 214900" src="https://github.com/user-attachments/assets/034a7f3a-faf7-495f-b9ea-5384902f6bec" />
+
+
 **Output Timing Waveform**
+
+-------------------------------------
+Full Adder
+-------------------------------------
+
+<img width="875" height="439" alt="Screenshot 2025-11-25 215038" src="https://github.com/user-attachments/assets/2b0297ba-875f-4545-a5f3-27cfd3ddf65c" />
+
+-------------------------------------
+Full Sub
+-------------------------------------
+
+<img width="869" height="615" alt="Screenshot 2025-11-25 215232" src="https://github.com/user-attachments/assets/beedb14f-acbb-4112-8609-4cab08761e28" />
+
 
 **Result:**
 
 Thus the Full Adder and Full Subtractor circuits are designed and the truth tables is verified using Quartus software.
-
 
 
